@@ -739,4 +739,12 @@ contract NFTMaster is Ownable, IERC721Receiver {
 
         nftMapping[collectionId_].push(r);
     }
-}
+ // Skips filled mappings.
+            for (j = 0; j < size; ++j) {
+                if (!filled[j]) {
+                    t = t.sub(1);
+                }
+
+                if (t == 0) {
+                  break;
+                }
